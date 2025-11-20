@@ -1,0 +1,239 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here.
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 220 42% 98%;
+    --foreground: 217 50% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 217 50% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 217 50% 12%;
+
+    /* Primary: Navy */
+    --primary: 217 80% 26%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 217 65% 34%;
+
+    --secondary: 220 30% 96%;
+    --secondary-foreground: 220 40% 22%;
+
+    --muted: 220 16% 92%;
+    --muted-foreground: 217 14% 40%;
+
+    /* Accent: Gold */
+    --accent: 43 90% 55%;
+    --accent-foreground: 0 0% 12%;
+
+    --success: 160 84% 39%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 42 96% 55%;
+    --warning-foreground: 0 0% 12%;
+
+    --destructive: 6 86% 58%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 18% 88%;
+    --input: 220 18% 88%;
+    --ring: 217 80% 26%;
+
+    --gold: 43 93% 52%;
+    --silver: 210 9% 76%;
+    --bronze: 28 68% 47%;
+
+    --pending: 42 96% 55%;
+    --approved: 160 84% 39%;
+    --rejected: 6 86% 58%;
+
+    --gradient-primary: linear-gradient(120deg, hsl(var(--primary)) 0%, hsl(var(--primary-glow)) 45%, hsl(var(--accent)) 100%);
+    --gradient-success: linear-gradient(135deg, hsl(var(--success)), hsl(158 84% 45%));
+    --gradient-card: linear-gradient(145deg, hsl(var(--card)), hsl(212 34% 97%));
+
+    --shadow-sm: 0 12px 30px -20px hsl(222 45% 10% / 0.25);
+    --shadow-md: 0 25px 60px -35px hsl(222 45% 10% / 0.35);
+    --shadow-lg: 0 32px 80px -45px hsl(224 53% 10% / 0.45);
+    --shadow-glow: 0 0 40px hsl(var(--primary) / 0.35);
+
+    --radius: 1.25rem;
+
+    --transition-smooth: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-spring: all 0.45s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+    --sidebar-background: 220 30% 98%;
+    --sidebar-foreground: 217 40% 20%;
+    --sidebar-primary: 217 80% 26%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 28% 95%;
+    --sidebar-accent-foreground: 217 50% 12%;
+    --sidebar-border: 220 25% 88%;
+    --sidebar-ring: 217 80% 26%;
+  }
+
+  .dark {
+    --background: 224 45% 6%;
+    --foreground: 210 36% 96%;
+
+    --card: 224 45% 10%;
+    --card-foreground: 210 36% 96%;
+
+    --popover: 224 45% 10%;
+    --popover-foreground: 210 36% 96%;
+
+    /* Navy brighter in dark */
+    --primary: 217 74% 60%;
+    --primary-foreground: 224 45% 8%;
+    --primary-glow: 217 80% 66%;
+
+    --secondary: 222 38% 14%;
+    --secondary-foreground: 210 36% 96%;
+
+    --muted: 226 32% 18%;
+    --muted-foreground: 220 18% 70%;
+
+    --accent: 43 90% 60%;
+    --accent-foreground: 224 45% 8%;
+
+    --success: 155 78% 50%;
+    --success-foreground: 224 45% 8%;
+
+    --warning: 38 95% 60%;
+    --warning-foreground: 224 45% 8%;
+
+    --destructive: 6 86% 66%;
+    --destructive-foreground: 224 45% 8%;
+
+    --border: 223 36% 20%;
+    --input: 223 36% 20%;
+    --ring: 217 74% 60%;
+
+    --gold: 43 93% 62%;
+    --silver: 210 9% 70%;
+    --bronze: 28 68% 52%;
+
+    --pending: 42 96% 65%;
+    --approved: 155 78% 50%;
+    --rejected: 6 86% 66%;
+
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary-glow)) 50%, hsl(var(--accent)) 100%);
+    --gradient-success: linear-gradient(135deg, hsl(var(--success)), hsl(150 85% 60%));
+    --gradient-card: linear-gradient(145deg, hsl(224 45% 12%), hsl(224 45% 8%));
+
+    --shadow-sm: 0 12px 35px -25px hsl(220 20% 2% / 0.65);
+    --shadow-md: 0 25px 60px -30px hsl(220 20% 2% / 0.75);
+    --shadow-lg: 0 45px 80px -40px hsl(220 20% 2% / 0.8);
+    --shadow-glow: 0 0 40px hsl(var(--primary) / 0.5);
+
+    --sidebar-background: 224 44% 8%;
+    --sidebar-foreground: 210 36% 96%;
+    --sidebar-primary: 217 74% 60%;
+    --sidebar-primary-foreground: 224 45% 8%;
+    --sidebar-accent: 223 34% 14%;
+    --sidebar-accent-foreground: 210 36% 96%;
+    --sidebar-border: 223 34% 18%;
+    --sidebar-ring: 217 74% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border transition-[border-color,box-shadow] duration-200;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    background-image:
+      radial-gradient(circle at 15% 20%, hsl(var(--primary) / 0.12), transparent 45%),
+      radial-gradient(circle at 85% 0%, hsl(var(--accent) / 0.18), transparent 40%),
+      linear-gradient(180deg, hsl(var(--primary) / 0.04), transparent);
+    background-attachment: fixed;
+  }
+
+  ::selection {
+    background: hsl(var(--primary) / 0.25);
+    color: hsl(var(--primary-foreground));
+  }
+
+  #root {
+    min-height: 100vh;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-semibold tracking-tight text-foreground;
+  }
+}
+
+@layer components {
+  .card-gradient {
+    background: var(--gradient-card);
+  }
+
+  .primary-gradient {
+    background: var(--gradient-primary);
+  }
+
+  .success-gradient {
+    background: var(--gradient-success);
+  }
+
+  .shadow-elegant {
+    box-shadow: var(--shadow-lg);
+  }
+
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .glass-panel {
+    @apply rounded-[28px] border border-white/50 bg-white/80 p-6 shadow-[0_25px_60px_-32px_rgba(15,23,42,0.55)] backdrop-blur-xl dark:border-white/10 dark:bg-slate-900/70;
+  }
+
+  .panel {
+    @apply rounded-[28px] border border-white/40 bg-white/75 shadow-[0_25px_60px_-30px_rgba(15,23,42,0.4)] backdrop-blur-xl dark:border-white/5 dark:bg-slate-900/70;
+  }
+
+  .subtle-panel {
+    @apply rounded-2xl border border-white/30 bg-white/60 shadow-sm backdrop-blur-xl dark:border-white/10 dark:bg-slate-900/60;
+  }
+
+  .pill {
+    @apply inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/60 px-4 py-1 text-xs font-semibold uppercase tracking-wide text-muted-foreground backdrop-blur dark:border-white/10 dark:bg-white/10;
+  }
+
+  .page-grid {
+    @apply space-y-8;
+  }
+}
+
+@layer utilities {
+  .bg-app-grid {
+    background-image:
+      linear-gradient(transparent 0, transparent calc(100% - 1px), hsla(var(--foreground) / 0.05) calc(100% - 1px)),
+      linear-gradient(90deg, transparent 0, transparent calc(100% - 1px), hsla(var(--foreground) / 0.05) calc(100% - 1px));
+    background-size: 40px 40px;
+  }
+
+  .radial-highlight {
+    background-image: radial-gradient(circle at center, hsl(var(--primary) / 0.18), transparent 55%);
+  }
+
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+
+  .transition-spring {
+    transition: var(--transition-spring);
+  }
+}
